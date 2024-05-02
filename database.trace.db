@@ -1,0 +1,8 @@
+2024-05-02 11:24:03.574969+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM IMAGEN IMAGEN [*]INFORME INFORME"
+Syntax error in SQL statement "SELECT * FROM IMAGEN IMAGEN [*]INFORME INFORME"; SQL statement:
+SELECT * FROM IMAGEN IMAGEN INFORME INFORME [42000-224]
+2024-05-02 11:24:22.951628+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "IMAMEDICO" no encontrada
+Table "IMAMEDICO" not found; SQL statement:
+SELECT * FROM IMAMEDICO GEN [42102-224]
