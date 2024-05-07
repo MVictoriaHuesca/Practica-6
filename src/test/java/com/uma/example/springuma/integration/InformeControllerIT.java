@@ -60,7 +60,6 @@ public class InformeControllerIT {
         informe = new Informe();
         informe.setId(1);
         informe.setImagen(imagen);
-        informe.setPrediccion("Not cancer (label 0),  score: 0.984481368213892");
         informe.setContenido("informe1");
     }
 
@@ -97,6 +96,7 @@ public class InformeControllerIT {
         .expectStatus().is2xxSuccessful()
         .returnResult(Informe.class);
 
+        // Con esto compruebo que el informe que he creado es el que se ha guardado
         Informe result = responseBody.getResponseBody().blockFirst();
         String resultToString = result.toString();
 
