@@ -24,9 +24,6 @@ import com.uma.example.springuma.model.Imagen;
 import com.uma.example.springuma.model.Informe;
 import com.uma.example.springuma.model.Paciente;
 
-// Cuando le doy al simbolo de ejecutar todos los tests de la clase a la vez,
-// me me da error en el test imagen_SePredicePacienteConCancer()
-// pero cuando ejecuto el test solo, me dice que el test ha pasado correctamente
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ImagenControllerIT{

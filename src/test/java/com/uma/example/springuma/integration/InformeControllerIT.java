@@ -27,9 +27,6 @@ import com.uma.example.springuma.model.Paciente;
 import jakarta.annotation.PostConstruct;
 import reactor.core.publisher.Mono;
 
-// Cuando le doy al simbolo de ejecutar todos los tests de la clase a la vez,
-// me me da error en el test informe_SeCreaInformeCorrectamente()
-// pero cuando ejecuto el test solo, me dice que el test ha pasado correctamente
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class InformeControllerIT {
