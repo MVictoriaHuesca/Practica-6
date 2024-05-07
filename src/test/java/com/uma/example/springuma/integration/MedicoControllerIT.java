@@ -30,31 +30,20 @@ public class MedicoControllerIT extends AbstractIntegration {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Test
-    @DisplayName("Prueba que un medico se crea correctamente")
-    public void medico_SeCreaCorrectamente() throws Exception {
+    private Medico creacionMedico(){
         Medico medico = new Medico();
         medico.setId(1);
         medico.setNombre("Juan");
         medico.setEspecialidad("Oftalmologia");
-        
-        this.mockMvc.perform(post("/medico")
-            .contentType("application/json")
-            .content(objectMapper.writeValueAsString(medico)))
-            .andExpect(status().isCreated())
-            .andExpect(status().is2xxSuccessful());
+
+        return medico;
     }
 
     @Test
-    @DisplayName("Prueba que un medico se obtiene correctamente dado su id")
-    public void medico_SeObtieneCorrectamente() throws Exception {
-        Medico medico = new Medico();
-        medico.setId(1);
-        medico.setDni("12345678A");
-        medico.setNombre("Juan");
-        medico.setEspecialidad("Oftalmologia");
+    @DisplayName("Prueba que un medico se crea y se obtiene correctamente")
+    public void postMedico_SeCreaYSeObtieneCorrectamente() throws Exception {
+        Medico medico = creacionMedico();
         
-
         this.mockMvc.perform(post("/medico")
             .contentType("application/json")
             .content(objectMapper.writeValueAsString(medico)))
@@ -76,12 +65,8 @@ public class MedicoControllerIT extends AbstractIntegration {
 
     @Test
     @DisplayName("Prueba que un medico se actualiza correctamente")
-    public void medico_SeActualizaCorrectamente() throws Exception {
-        Medico medico = new Medico();
-        medico.setId(1);
-        medico.setNombre("Juan");
-        medico.setEspecialidad("Oftalmologia");
-        
+    public void putMedico_SeActualizaCorrectamente() throws Exception {
+        Medico medico = creacionMedico();
 
         this.mockMvc.perform(post("/medico")
             .contentType("application/json")
@@ -101,18 +86,15 @@ public class MedicoControllerIT extends AbstractIntegration {
             .andDo(print())
             .andExpect(status().is2xxSuccessful())
             .andExpect(content().contentType("application/json"))
-            .andExpect(jsonPath("$.nombre").value("Pedro"));
+            .andExpect(jsonPath("$.nombre").value("Pedro"))
+            .andExpect(jsonPath("$.especialidad").value("Cardiologia"));
     }
 
     @Test
     @DisplayName("Prueba que un medico se elimina correctamente")
-    public void medico_SeEliminaCorrectamente() throws Exception {
-        Medico medico = new Medico();
-        medico.setId(1);
-        medico.setNombre("Juan");
-        medico.setEspecialidad("Oftalmologia");
+    public void deleteMedico_SeEliminaCorrectamente() throws Exception {
+        Medico medico = creacionMedico();
         
-
         this.mockMvc.perform(post("/medico")
             .contentType("application/json")
             .content(objectMapper.writeValueAsString(medico)))

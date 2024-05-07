@@ -69,7 +69,7 @@ public class InformeControllerIT {
 
     @Test
     @DisplayName("Prueba que se crea un informe correctamente")
-    public void informe_SeCreaInformeCorrectamente() {
+    public void postInforme_SeCreaInformeCorrectamente() {
         client.post().uri("/paciente")
         .body(Mono.just(paciente), Paciente.class)
         .exchange()
@@ -108,7 +108,7 @@ public class InformeControllerIT {
 
     @Test
     @DisplayName("Prueba que se elimina un informe correctamente")
-    public void informe_SeEliminaInformeCorrectamente() {
+    public void deleteInforme_SeEliminaInformeCorrectamente() {
         client.post().uri("/paciente")
         .body(Mono.just(paciente), Paciente.class)
         .exchange()

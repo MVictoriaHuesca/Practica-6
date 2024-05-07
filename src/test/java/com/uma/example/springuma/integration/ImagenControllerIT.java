@@ -56,7 +56,7 @@ public class ImagenControllerIT{
 
     @Test
     @DisplayName("Prueba que se sube una imagen correctamente")
-    public void imagen_SeSubeImagenCorrectamente() {
+    public void postImagen_SeSubeImagenCorrectamente() {
         client.post().uri("/paciente")
         .body(Mono.just(paciente), Paciente.class)
         .exchange()
@@ -82,7 +82,7 @@ public class ImagenControllerIT{
 
     @Test
     @DisplayName("Prueba que da una prediccion de un paciente sin sintomas de cáncer")
-    public void imagen_SePredicePacienteSinCancer() {
+    public void getImagen_SePredicePacienteSinCancer() {
         client.post().uri("/paciente")
         .body(Mono.just(paciente), Paciente.class)
         .exchange()
@@ -114,7 +114,7 @@ public class ImagenControllerIT{
 
     @Test
     @DisplayName("Prueba que da una prediccion de un paciente con sintomas de cáncer")
-    public void imagen_SePredicePacienteConCancer() {
+    public void getImagen_SePredicePacienteConCancer() {
         client.post().uri("/paciente")
         .body(Mono.just(paciente), Paciente.class)
         .exchange()
