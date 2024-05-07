@@ -93,7 +93,7 @@ public class ImagenControllerIT{
         builder.part("image", new FileSystemResource("./src/test/resources/healthy.png"));
         builder.part("paciente", paciente);
 
-        FluxExchangeResult<String> responseBody = client.post()
+        client.post()
         .uri("/imagen")
         .contentType(MediaType.MULTIPART_FORM_DATA)
         .body(BodyInserters.fromMultipartData(builder.build()))
@@ -101,7 +101,7 @@ public class ImagenControllerIT{
         .expectStatus().is2xxSuccessful()
         .returnResult(String.class);
 
-        responseBody = client.get()
+        FluxExchangeResult<String> responseBody = client.get()
         .uri("/imagen/predict/1")
         .exchange()
         .expectStatus().is2xxSuccessful()
@@ -125,7 +125,7 @@ public class ImagenControllerIT{
         builder.part("image", new FileSystemResource("./src/test/resources/no_healthty.png"));
         builder.part("paciente", paciente);
 
-        FluxExchangeResult<String> responseBody = client.post()
+        client.post()
         .uri("/imagen")
         .contentType(MediaType.MULTIPART_FORM_DATA)
         .body(BodyInserters.fromMultipartData(builder.build()))
@@ -133,7 +133,7 @@ public class ImagenControllerIT{
         .expectStatus().is2xxSuccessful()
         .returnResult(String.class);
 
-        responseBody = client.get()
+        FluxExchangeResult<String> responseBody = client.get()
         .uri("/imagen/predict/1")
         .exchange()
         .expectStatus().is2xxSuccessful()

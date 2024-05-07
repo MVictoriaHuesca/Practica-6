@@ -74,8 +74,10 @@ public class MedicoControllerIT extends AbstractIntegration {
             .andExpect(status().isCreated())
             .andExpect(status().is2xxSuccessful());
 
-        medico.setNombre("Pedro");
-        medico.setEspecialidad("Cardiologia");
+        String nuevoNombreMedico = "Pedro";
+        String nuevaEspecialidadMedico = "Cardiologia";
+        medico.setNombre(nuevoNombreMedico);
+        medico.setEspecialidad(nuevaEspecialidadMedico);
 
         this.mockMvc.perform(put("/medico")
             .contentType("application/json")
@@ -86,8 +88,8 @@ public class MedicoControllerIT extends AbstractIntegration {
             .andDo(print())
             .andExpect(status().is2xxSuccessful())
             .andExpect(content().contentType("application/json"))
-            .andExpect(jsonPath("$.nombre").value("Pedro"))
-            .andExpect(jsonPath("$.especialidad").value("Cardiologia"));
+            .andExpect(jsonPath("$.nombre").value(nuevoNombreMedico))
+            .andExpect(jsonPath("$.especialidad").value(nuevaEspecialidadMedico));
     }
 
     @Test
