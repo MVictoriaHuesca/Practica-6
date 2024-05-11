@@ -75,10 +75,14 @@ public class PacienteControllerIT extends AbstractIntegration {
             .andExpect(status().isCreated())
             .andExpect(status().is2xxSuccessful());
 
+        this.mockMvc.perform(get("/paciente/1"))
+            .andExpect(status().is2xxSuccessful())
+            .andExpect(jsonPath("$.nombre").value("Juan"));
+
         this.mockMvc.perform(get("/paciente/medico/1"))
             .andExpect(status().is2xxSuccessful())
-            .andExpect(jsonPath("$[0]").value(paciente))
-            .andExpect(jsonPath("$[0].medico").value(medico));
+            .andExpect(jsonPath("$[0].nombre").value("Juan"))
+            .andExpect(jsonPath("$[0].medico.nombre").value("Mario"));
     }
 
     @Test
@@ -108,7 +112,8 @@ public class PacienteControllerIT extends AbstractIntegration {
         this.mockMvc.perform(put("/paciente")
             .contentType("application/json")
             .content(objectMapper.writeValueAsString(paciente)))
-            .andExpect(status().is2xxSuccessful());
+            .andExpect(status().is2xxSuccessful())
+            .andExpect(status().isNoContent());
 
         this.mockMvc.perform(get("/paciente/medico/1"))
             .andExpect(status().is2xxSuccessful())
@@ -143,7 +148,8 @@ public class PacienteControllerIT extends AbstractIntegration {
         this.mockMvc.perform(put("/medico")
             .contentType("application/json")
             .content(objectMapper.writeValueAsString(medico)))
-            .andExpect(status().is2xxSuccessful());
+            .andExpect(status().is2xxSuccessful())
+            .andExpect(status().isNoContent());
 
         this.mockMvc.perform(get("/paciente/medico/1"))
             .andExpect(status().is2xxSuccessful())

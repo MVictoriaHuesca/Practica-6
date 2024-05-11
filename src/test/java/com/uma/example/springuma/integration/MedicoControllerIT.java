@@ -82,7 +82,8 @@ public class MedicoControllerIT extends AbstractIntegration {
         this.mockMvc.perform(put("/medico")
             .contentType("application/json")
             .content(objectMapper.writeValueAsString(medico)))
-            .andExpect(status().is2xxSuccessful());
+            .andExpect(status().is2xxSuccessful())
+            .andExpect(status().isNoContent());
 
         this.mockMvc.perform(get("/medico/1"))
             .andDo(print())
