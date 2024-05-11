@@ -122,7 +122,7 @@ public class PacienteControllerIT extends AbstractIntegration {
 
 
     @Test
-    @DisplayName("Prueba que se de medico a un paciente correctamente")
+    @DisplayName("Prueba que se edita medico a un paciente correctamente")
     public void putPaciente_SeEditaMedicoDePacienteCorrectamente() throws Exception {
         Medico medico = creacionMedico();
 
