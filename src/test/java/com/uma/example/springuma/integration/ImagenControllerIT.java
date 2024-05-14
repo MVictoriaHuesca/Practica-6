@@ -130,6 +130,7 @@ public class ImagenControllerIT{
         .expectStatus().is2xxSuccessful()
         .returnResult(String.class);
 
+        // con el get hace el predict
         FluxExchangeResult<String> responseBody = client.get()
         .uri("/imagen/predict/1")
         .exchange()
