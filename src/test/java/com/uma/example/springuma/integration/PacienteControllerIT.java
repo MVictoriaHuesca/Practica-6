@@ -1,5 +1,11 @@
 package com.uma.example.springuma.integration;
 
+/*
+ * Autores:
+ * - Eduardo García Rivas
+ * - María Victoria Huesca Peláez
+ */
+
 import com.uma.example.springuma.integration.base.AbstractIntegration;
 import com.uma.example.springuma.model.Medico;
 import com.uma.example.springuma.model.Paciente;

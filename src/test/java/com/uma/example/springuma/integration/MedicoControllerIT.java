@@ -1,5 +1,11 @@
 package com.uma.example.springuma.integration;
 
+/*
+ * Autores:
+ * - Eduardo García Rivas
+ * - María Victoria Huesca Peláez
+ */
+
 import com.uma.example.springuma.integration.base.AbstractIntegration;
 import com.uma.example.springuma.model.Medico;
 
@@ -40,7 +46,7 @@ public class MedicoControllerIT extends AbstractIntegration {
 
     @Test
     @DisplayName("Test para crear un médico y leerlo correctamente por su id y por su dni")
-    public void testCrearMedico() throws JsonProcessingException, Exception {
+    public void testCrearMedico() throws Exception {
         Medico medico = this.crearMedico();
         
         this.mockMvc.perform(post("/medico")

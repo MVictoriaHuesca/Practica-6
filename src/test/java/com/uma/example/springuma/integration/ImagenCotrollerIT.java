@@ -1,3 +1,9 @@
+/*
+ * Autores:
+ * - Eduardo García Rivas
+ * - María Victoria Huesca Peláez
+ */
+
 package com.uma.example.springuma.integration;
 
 
@@ -43,7 +49,6 @@ public class ImagenCotrollerIT {
 
         this.imagen = new Imagen();
         this.imagen.setId(1);
-        this.imagen.setNombre("healthy.png");
         this.imagen.setPaciente(paciente);
     }
 
@@ -116,8 +121,8 @@ public class ImagenCotrollerIT {
     }
 
     @Test
-    @DisplayName("Test que prueba predicción de paciente con cáncer correctamente")
-    public void prediccionCinCancerTest() {
+    @DisplayName("Test que prueba predicción de paciente sin cáncer correctamente")
+    public void prediccionConCancerTest() {
         //creacion del paciente
         this.webTestClient.post()
             .uri("/paciente")
@@ -128,7 +133,7 @@ public class ImagenCotrollerIT {
         
         //sube la imagen de paciente 1
         MultipartBodyBuilder builder = new MultipartBodyBuilder();
-        builder.part("image", new FileSystemResource("./src/test/resources/no_healthy.png"));
+        builder.part("image", new FileSystemResource("./src/test/resources/no_healthty.png"));
         builder.part("paciente", paciente);
 
         this.webTestClient.post()
