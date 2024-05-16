@@ -1,3 +1,8 @@
+/*
+ * @autor1 = Eduardo García Rivas
+ * @autor2 = María Victoria Huesca Peláez
+ */
+
 package com.uma.example.springuma.integration;
 
 import static org.hamcrest.Matchers.containsString;
